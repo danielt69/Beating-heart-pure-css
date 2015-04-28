@@ -72,35 +72,33 @@
 
 @-webkit-keyframes bounceIn { 
     0% { 
-        -webkit-transform: scale(.3); 
+        -webkit-transform: scale(1); 
     } 
 
     50% { 
-        -webkit-transform: scale(1.1); 
+        -webkit-transform: scale(2); 
     } 
 
     70% { 
-        -webkit-transform: scale(.9); 
+        -webkit-transform: scale(0.75); 
     } 
 
     100% { 
-         -webkit-transform: scale(1); 
+        -webkit-transform: scale(1); 
     } 
 } 
 
 @keyframes bounceIn { 
     0% { 
-        opacity: 0; 
-        transform: scale(.3); 
+        transform: scale(1); 
     } 
 
     50% { 
-        opacity: 1; 
-        transform: scale(1.05); 
+        transform: scale(2); 
     } 
 
     70% { 
-        transform: scale(.9); 
+        transform: scale(0.75); 
     } 
 
     100% { 
