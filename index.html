@@ -1,60 +1,154 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Beating Heart &mdash; Pure CSS</title>
+    <meta name="description" content="A heart that beats, built with nothing but HTML and CSS. No images, no JavaScript.">
+    <meta name="author" content="Daniel Tsionit">
+    <meta property="og:title" content="Beating Heart — Pure CSS">
+    <meta property="og:description" content="A heart that beats, built with nothing but HTML and CSS.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
     <style>
-    body {
-        padding-top: 50px;
-        padding-bottom: 20px;
-    }
+        :root {
+            --heart: #e0123c;
+            --heart-glow: rgba(224, 18, 60, 0.55);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #f5f5f7;
+            background: radial-gradient(circle at 50% 35%, #2a0a14 0%, #120308 55%, #050103 100%);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        p.tagline {
+            margin-top: 0.6rem;
+            color: #b9a0a7;
+            font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        }
+
+        .stage {
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 180px;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            animation: heartbeat 1.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 22px var(--heart-glow));
+        }
+
+        .heart::before,
+        .heart::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: var(--heart);
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.25); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.18); }
+            70% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .heart { animation: none; }
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .repo-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 1.5rem;
+            color: #6b5258;
+            font-size: 0.8rem;
+        }
     </style>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Beating heart pure css</h1>
-            
-            <p><a class="btn btn-primary btn-lg" href="https://github.com/danielt69/Beating-heart-pure-css" role="button">Go to the repo &raquo;</a></p>
-        </div>
+    <h1>Beating Heart</h1>
+    <p class="tagline">Pure CSS &mdash; no images, no JavaScript.</p>
+
+    <div class="stage" aria-label="An animated beating heart">
+        <div class="heart" role="img"></div>
     </div>
-    <div class="container">
-        <div class="row">
-        <div class="wrapper">
-            <div id="heart" class="col-md-4 bounceIn animated">
-            </div>
-        </div>
-        </div>
-        <hr>
-        <footer>
-            <p>&copy; Company 2015</p>
-        </footer>
-    </div>
-    <!-- /container -->
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/main.js"></script> -->
+
+    <a class="repo-link" href="https://github.com/danielt69/Beating-heart-pure-css">
+        <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        View the source
+    </a>
+
+    <footer>&copy; Daniel Tsionit</footer>
 </body>
 
 </html>
