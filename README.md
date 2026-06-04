@@ -6,7 +6,7 @@ A heart that beats, built with nothing but HTML and CSS. No images, no JavaScrip
 
 ## How it works
 
-The heart is two CSS pseudo-elements (`::before` and `::after`) — rounded rectangles rotated ±45° and joined at the base. A `@keyframes` animation scales it on a double-thump rhythm to mimic a real heartbeat, with a soft glow via `drop-shadow`. Motion is disabled automatically for users with `prefers-reduced-motion`.
+The heart is two CSS pseudo-elements (`::before` and `::after`) — gradient-filled rounded rectangles rotated ±45° and joined at the base. A `@keyframes` animation drives a realistic **lub-dub** rhythm: a sharp first contraction, a lighter second, then a long diastole rest. Synced to it are an expanding pulse ring and a slowly breathing ambient background glow. Everything is disabled automatically for users with `prefers-reduced-motion`.
 
 ## Run locally
 
